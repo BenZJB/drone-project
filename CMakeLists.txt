@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 
 # initialize pico-sdk from submodule
 # note: this must happen before project()
-include(pico_sdk_init.cmake)
+include(pico_sdk_import.cmake)
 
 project(drone_project)
 
@@ -16,7 +16,7 @@ add_executable(controller
 )
 
 # Add pico_stdlib library which aggregates commonly used features
-target_link_libraries(main pico_stdlib)
+target_link_libraries(controller pico_stdlib)
 
 # create map/bin/hex/uf2 file in addition to ELF.
-pico_add_extra_outputs(main)
+pico_add_extra_outputs(controller)
